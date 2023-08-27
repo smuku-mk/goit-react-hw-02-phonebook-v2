@@ -17,4 +17,5 @@ export const ContactListItem = ({ contacts, onButtonClick }) => {
 
 ContactListItem.propTypes = {
   contacts: PropTypes.array.isRequired,
+  onButtonClick: PropTypes.func.isRequired,
 };

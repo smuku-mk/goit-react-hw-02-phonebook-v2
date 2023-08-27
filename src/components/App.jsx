@@ -29,11 +29,11 @@ class App extends Component {
     form.reset();
   };
 
-  handleFilter = evt => {
+  handleFilterChange = evt => {
     this.setState({ filter: evt.target.value });
   };
 
-  contacts = () => {
+  handleDisplayContacts = () => {
     const { contacts, filter } = this.state;
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
@@ -44,11 +44,11 @@ class App extends Component {
     return (
       <>
         <h2>Phonebook</h2>
-        <ContactForm handleSubmit={this.handleSubmit} />
+        <ContactForm onSubmit={this.handleSubmit} />
         <h2>Contacts</h2>
-        <Filter handleFilter={this.handleFilter} />
+        <Filter onChange={this.handleFilterChange} />
         <ContactList>
-          <ContactListItem contacts={this.contacts()} />
+          <ContactListItem contacts={this.handleDisplayContacts()} />
         </ContactList>
       </>
     );

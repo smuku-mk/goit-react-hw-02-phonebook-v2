@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-export const ContactForm = ({ handleSubmit }) => {
+export const ContactForm = ({ onSubmit }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={onSubmit}>
       <label>
         <span>Name</span>
         <input

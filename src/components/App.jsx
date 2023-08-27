@@ -48,6 +48,12 @@ class App extends Component {
     );
   };
 
+  handleDeleteContact = id => {
+    const { contacts } = this.state;
+    const updatedContacts = contacts.filter(contact => contact.id !== id);
+    this.setState({ contacts: updatedContacts });
+  };
+
   render() {
     return (
       <>
@@ -56,7 +62,10 @@ class App extends Component {
         <h2>Contacts</h2>
         <Filter onChange={this.handleFilterChange} />
         <ContactList>
-          <ContactListItem contacts={this.handleDisplayContacts()} />
+          <ContactListItem
+            contacts={this.handleDisplayContacts()}
+            onButtonClick={this.handleDeleteContact}
+          />
         </ContactList>
       </>
     );
